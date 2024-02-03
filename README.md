@@ -1,4 +1,5 @@
 This is a [Next.js](https://nextjs.org/) registration form project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+page.js and globals.css contains the edited files.
 
 ## Getting Started
 
