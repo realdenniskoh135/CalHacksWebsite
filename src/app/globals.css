@@ -1,33 +1,244 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
-
-:root {
-  --foreground-rgb: 0, 0, 0;
-  --background-start-rgb: 214, 219, 220;
-  --background-end-rgb: 255, 255, 255;
+/* Font setup */
+@font-face {
+  font-family: Karla;
+  src: url('/src/app/fonts/Karla/Karla-VariableFont_wght.ttf');
+  font-weight: 400;
+  font-style: normal;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --foreground-rgb: 255, 255, 255;
-    --background-start-rgb: 0, 0, 0;
-    --background-end-rgb: 0, 0, 0;
+@font-face {
+  font-family: Karla;
+  src: url('/src/app/fonts/Karla/Karla-VariableFont_wght.ttf');
+  font-weight: 700;
+  font-style: normal;
+}
+
+/* Reset styling for body and setting up the font */
+
+html, body {
+  margin: 0;
+  padding: 0;
+  font-family: Karla, sans-serif;
+  background: rgb(243,252,255);
+  color: #0d2f72;
+  font-size: 1.05rem;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+/* Container and logo style */
+
+.form-container img.form-logo {
+  display: block;
+  max-width: 100%;
+  height: auto;
+  margin: 0 auto 20px;
+}
+
+.form-container {
+  display: flex;
+  flex-direction: column;
+  width: 100%; 
+  max-width: 600px;
+  margin: auto;
+  height: auto;
+  margin-top: 20px;
+  justify-content: center;
+}
+
+.form-container h1 {
+  font-family: Karla, sans-serif;
+  color: #3d68bb;
+  font-size: 1.9rem;
+  font-weight: 800;
+  line-height: 1.125;
+  text-align: center;
+  margin-bottom: 50px;
+  font-weight: bold;
+}
+
+/* Form field style */
+
+.form-field {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+  margin-bottom: 30px;
+}
+
+.form-field label {
+  font-size: 1.05rem;
+  color: #0d2f72;
+  font-weight: bold;
+}
+
+.form-field input, .form-field textarea, .form-field select {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-size: 1rem;
+  font-family: Karla, sans-serif;
+  background-color: #ccc; 
+  color: #333; 
+  appearance: none;
+}
+
+.form-field select {
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" viewBox="0 0 20 20"><path fill="rgb(51, 51, 51)" d="M5.5,8l4.5,4.5L14.5,8H5.5z"/></svg>');
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  background-size: 12px;
+}
+
+.form-field label, legend {
+  font-size: 1.05rem;
+  color: #0d2f72;
+  font-weight: bold;
+  font-family: Karla, sans-serif;
+}
+
+/* Submit button style */
+
+.submit-button {
+  padding: 10px 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007BFF;
+  font-family: Karla, sans-serif;
+  color: white;
+  font-size: 1.2rem;
+  cursor: pointer;
+  margin-bottom: 2rem;
+}
+
+.submit-button:hover {
+  padding: 10px 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #0553a7;
+  font-family: Karla, sans-serif;
+  color: white;
+  font-size: 1.2rem;
+  cursor: pointer;
+  margin-bottom: 2rem;
+  transition-duration: 0.5s;
+}
+
+/* Resume upload styling */
+
+.resume-upload {
+  width: 100%; 
+  max-width: 20rem;
+  margin: 0;
+}
+
+.form-field input, .form-field textarea, .form-field select {
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #ccc;
+  font-family: Karla, sans-serif;
+  font-size: 1rem;
+  background-color: white; 
+  color: #333; 
+  appearance: none;
+  display: block;
+  margin-bottom: 10px;
+}
+
+/* Styling for file input button, including hover */
+
+input[type="file"]::file-selector-button {
+  margin-right: 20px;
+  border: none;
+  background: #007BFF;
+  padding: 10px 20px;
+  border-radius: 10px;
+  color: #fff;
+  cursor: pointer;
+  transition: background 0.2s ease-in-out;
+}
+
+input[type="file"]::file-selector-button:hover {
+  background: #0d45a5;
+}
+
+/* Fieldset style */
+
+fieldset {
+  border: none;
+  padding: 0;
+  margin: 0 0 30px;
+}
+
+legend {
+  font-size: 1.05rem;
+  font-weight: bold;
+  margin-bottom: 7px;
+  font-family: Karla, sans-serif;
+  color: #0d2f72;
+}
+
+input[type="checkbox"] {
+  margin-right: 10px;
+}
+
+.age-verification {
+  opacity: 0; 
+  animation: fadeIn 0.5s ease-out 2.4s forwards;
+}
+
+/* Styling for transition of form elements */
+
+@keyframes fadeIn {
+  from { opacity: 0; transform: translateY(20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.form-field, .form-logo, .submit-button {
+  opacity: 0;
+  animation: fadeIn 0.5s ease-out forwards;
+}
+
+.form-logo { animation-delay: 0.2s; }
+.form-field:nth-child(2) { animation-delay: 0.4s; } 
+.form-field:nth-child(3) { animation-delay: 0.6s; }
+.form-field:nth-child(4) { animation-delay: 0.8s; }
+.form-field:nth-child(5) { animation-delay: 1.0s; }
+.form-field:nth-child(6) { animation-delay: 1.2s; }
+.form-field:nth-child(7) { animation-delay: 1.4s; }
+.form-field:nth-child(8) { animation-delay: 1.6s; }
+.form-field:nth-child(9) { animation-delay: 1.8s; }
+.form-field:nth-child(10) { animation-delay: 2.0s; }
+.form-field:nth-child(11) { animation-delay: 2.2s; }
+.submit-button { animation-delay: 2.6s; }
+
+/* Responsive design styling using media queries */
+
+@media (max-width: 768px) {
+  .form-container {
+    width: 95%;
+  }
+
+  .form-container h1 {
+    font-size: 2rem;
   }
 }
 
-body {
-  color: rgb(var(--foreground-rgb));
-  background: linear-gradient(
-      to bottom,
-      transparent,
-      rgb(var(--background-end-rgb))
-    )
-    rgb(var(--background-start-rgb));
-}
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
+@media (max-width: 480px) {
+  .form-container {
+    width: 100%;
+    margin: 0;
+    max-width: none;
   }
+
+  .form-container h1 {
+    font-size: 1.5rem;
+  }
+
+  .submit-button {
+    width: 100%;
+  }
+  
 }
